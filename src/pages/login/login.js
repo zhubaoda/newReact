@@ -11,6 +11,30 @@ class Login extends Component {
 	  password: ''
     }
   }
+  render() {
+    return (
+      <div className="login">
+        <Head title={this.state.title} />
+        <div className="main">
+	  	  <div className="box">
+	  	    <div className="box-item display_box_t">
+	  	    	   <img src={require("../../static/icon/phone.svg")} className="phone-img" alt=""/>
+	  	    	   <input type="number" onChange={this.changePhone.bind(this)} value={this.state.formData.phone} placeholder="+86 请输入手机号" className="item-input"/>
+	  	    	   {this.state.formData.phone ? <span onClick={this.clearPhone.bind(this)}>X</span> : null}
+	  	    </div>
+	  	    <div className="box-item display_box_t">
+	  	    	   <img src={require("../../static/icon/password.svg")} className="phone-img" alt=""/>
+	  	    	   <input type="password" onChange={this.changePassWord.bind(this)} value={this.state.formData.password} placeholder="请输入密码" className="item-input" />
+	  	    	   {this.state.formData.password ? <span onClick={this.clearPassWord.bind(this)}>X</span> : null}
+	  	    </div>
+	  	    <div className="submit" onClick={this.login.bind(this)}>
+	  	    	   <span>登录</span>
+	  	    </div>
+	  	  </div>
+	  	</div>
+      </div>
+    );
+  }
   async login () {
   	const { formData } = this.state
   	if (!formData.phone) {
@@ -43,7 +67,7 @@ class Login extends Component {
     	  	localStorage.setItem('info', JSON.stringify(info))
     	  }
     	  Toast.info('登录成功！')
-      window.location = '/home'
+      window.location = '/'
     }   
   }
   async changePhone (e) {
@@ -65,30 +89,6 @@ class Login extends Component {
   	const { formData } = this.state
   	formData.password = ''
   	await this.setState({ formData: formData })
-  }
-  render() {
-    return (
-      <div className="login">
-        <Head title={this.state.title} />
-        <div className="main">
-	  	  <div className="box">
-	  	    <div className="box-item display_box_t">
-	  	    	   <img src={require("../../static/icon/phone.svg")} className="phone-img" alt=""/>
-	  	    	   <input type="number" onChange={this.changePhone.bind(this)} value={this.state.formData.phone} placeholder="+86 请输入手机号" className="item-input"/>
-	  	    	   {this.state.formData.phone ? <span onClick={this.clearPhone.bind(this)}>X</span> : null}
-	  	    </div>
-	  	    <div className="box-item display_box_t">
-	  	    	   <img src={require("../../static/icon/password.svg")} className="phone-img" alt=""/>
-	  	    	   <input type="password" onChange={this.changePassWord.bind(this)} value={this.state.formData.password} placeholder="请输入密码" className="item-input" />
-	  	    	   {this.state.formData.password ? <span onClick={this.clearPassWord.bind(this)}>X</span> : null}
-	  	    </div>
-	  	    <div className="submit" onClick={this.login.bind(this)}>
-	  	    	   <span>登录</span>
-	  	    </div>
-	  	  </div>
-	  	</div>
-      </div>
-    );
   }
   async componentDidMount () {
   	console.log('come in login page!')
