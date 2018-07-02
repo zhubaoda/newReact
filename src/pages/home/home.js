@@ -31,7 +31,7 @@ class Home extends Component {
   	})
   }
   async componentDidMount () {
-    console.log('come in home page!')
+    console.log('welcome entering home page!')
   }
 }
 

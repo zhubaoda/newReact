@@ -103,7 +103,7 @@ class Login extends Component {
   	return dataURL
   }
   async componentDidMount () {
-  	console.log('come in login page!')
+  	console.log('welcome entering login page!')
     let that = this
   	let image = new Image()
   	image.src = '/weapp/shop/fenxiao/member/22.jpg'

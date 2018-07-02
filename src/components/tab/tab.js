@@ -25,7 +25,28 @@ class Tab extends Component {
   }
   async selectBar (index) {
   	this.props.selectBar(index)
-  	this.refs.scrollTab.scrollLeft = index * this.props.itemWidth
+    let nowLeft = this.state.scrollLeft
+    let afterLeft = index * this.props.itemWidth
+    let ranges = afterLeft - nowLeft
+    let allLeft = this.props.list.length * this.props.itemWidth
+    let speed = ranges / 100
+    let timer = setInterval(() => {
+    	  if (this.refs.scrollTab.scrollLeft < index * this.props.itemWidth) {
+    	  	this.refs.scrollTab.scrollLeft = this.refs.scrollTab.scrollLeft + speed
+    	  	if (this.refs.scrollTab.scrollLeft >= allLeft - document.body.clientWidth) {
+    	  	  clearInterval(timer)	
+    	  	}
+    	  } else {
+    	  	clearInterval(timer)
+    	  }
+    }, 5)
+  }
+  async componentDidMount () {
+    this.refs.scrollTab.addEventListener('scroll', (e) => {
+    	  this.setState({
+    	  	scrollLeft: e.target.scrollLeft
+    	  })
+    })
   }
 }
 
