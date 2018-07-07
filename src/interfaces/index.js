@@ -11,5 +11,11 @@ export default {
   },
   async getBanner () {
   	return await this.fetch('/api/banner')
-  }
+  },
+	async getGoodList (params) {
+		return await this.fetch('/php/goodlist', { params: params })
+	},
+	async getTabList (params) {
+		return await this.fetch('/php/tablist')
+	}
 }

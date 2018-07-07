@@ -5,6 +5,7 @@
   "dependencies": {
     "antd-mobile": "^2.1.11",
     "axios": "^0.18.0",
+    "classnames": "^2.2.6",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-router-dom": "^4.3.1",
@@ -24,8 +25,15 @@
       }
     },
     "/weapp": {
-    	  "target": "https://zuizan.oss-cn-hangzhou.aliyuncs.com",
-    	  "changeOrigin": true
+      "target": "https://zuizan.oss-cn-hangzhou.aliyuncs.com",
+      "changeOrigin": true
+    },
+    "/php": {
+      "target": "http://127.0.0.1:8000",
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/php": "/"
+      }
     }
   },
   "devDependencies": {

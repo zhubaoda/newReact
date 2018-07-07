@@ -7,8 +7,8 @@ class Login extends Component {
   state = {
   	title: '登录',
     formData: {
-	  phone: '',
-	  password: ''
+	    phone: '',
+	    password: ''
     },
     base64: ''
   }
@@ -109,10 +109,10 @@ class Login extends Component {
   	image.src = '/weapp/shop/fenxiao/member/22.jpg'
   	this.crossOrigin = 'anonymous' 	
   	image.onload = async function() {
-	  let base64 = await that.getBaseImg(image)
-	  that.setState({
-	  	base64: base64
-	  }) 
+	    let base64 = await that.getBaseImg(image)
+	    that.setState({
+	  	  base64: base64
+	    }) 
   	}	
   }
 }

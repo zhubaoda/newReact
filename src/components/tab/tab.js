@@ -24,7 +24,7 @@ class Tab extends Component {
     );
   }
   async selectBar (index) {
-  	this.props.selectBar(index)
+  	await this.props.selectBar(index)
     let nowLeft = this.state.scrollLeft
     let afterLeft = index * this.props.itemWidth
     let ranges = afterLeft - nowLeft

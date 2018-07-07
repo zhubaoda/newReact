@@ -5,10 +5,10 @@ import { Switch, Route } from 'react-router-dom';
 class MyRouter extends Component {
 	render() {
 	    return (
-	        <Switch>
-			  <Route exact path='/' component={Home}/>
-			  <Route exact path='/login' component={Login}/>
-			</Switch>
+	      <Switch>
+			    <Route exact path='/' component={Home}/>
+			    <Route exact path='/login' component={Login}/>
+			  </Switch>
 	    );
 	}
 }
