@@ -20,7 +20,8 @@ class Home extends Component {
 		list: [],
 		refreshing: false,
 		down: true,
-		onBottom: false
+		onBottom: false,
+		bannerList: []
   }
   render() {
     return (
@@ -109,7 +110,10 @@ class Home extends Component {
 			}, 1000)	
 		}
 	}
-	async getList () {
+	async getBanner () {
+		let bannerList = await interfaces.getBanner()
+	}
+ 	async getList () {
 		let goodlist = await interfaces.getGoodList(this.state.params)
 		if (!goodlist.hasError && goodlist.data) {
 			let list = []
@@ -142,8 +146,8 @@ class Home extends Component {
 	}
   async componentWillMount () {
     console.log('welcome entering home page!')
-		this.getTab()
-		this.getList()
+		this.getBanner()
+		// this.getList()
   }
 }
 
