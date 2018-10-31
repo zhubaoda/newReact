@@ -6,16 +6,10 @@ export default {
   	let fetch = new Fetch()
   	return fetch.fetch(...arguments)
   },
-  async login (params) {
-  	return await this.fetch('/api/login/cellphone', {params: params})
+  async wechatLogin (actiontype, args) {
+  	return await this.fetch('/webhandler.ashx', actiontype, args)
   },
-  async getBanner () {
-  	return await this.fetch('/api/banner')
-  },
-	async getGoodList (params) {
-		return await this.fetch('/php/goodlist', { params: params })
-	},
-	async getTabList (params) {
-		return await this.fetch('/php/tablist')
+	async getActivity (actiontype) {
+		return await this.fetch('/webhandler.ashx', actiontype)
 	}
 }

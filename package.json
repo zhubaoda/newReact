@@ -24,12 +24,12 @@
         "^/api": "/"
       }
     },
-    "/weapp": {
-      "target": "https://zuizan.oss-cn-hangzhou.aliyuncs.com",
+    "/webhandler.ashx": {
+      "target": "https://www.loongair.cn",
       "changeOrigin": true
     },
     "/php": {
-      "target": "http://127.0.0.1:8000",
+      "target": "http://localhost:3000",
       "changeOrigin": true,
       "pathRewrite": {
         "^/php": "/"

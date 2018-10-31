@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import './home.css'
 import classNames from 'classnames';
 import interfaces from '../../interfaces/index'
+import Global from '../../interfaces/globalname'
+
 import { PullToRefresh, Toast } from 'antd-mobile';
 import Head from '../../components/head/head'
 import Tab from '../../components/tab/tab'
@@ -59,6 +61,11 @@ class Home extends Component {
       </div>
     );
   }
+  async getData () {
+    let actiontype = Global.CabinActiveService_GetActivityList
+		let res = await interfaces.getActivity(actiontype)
+		console.log(res)
+  }
   async selectBar (index) {
   	this.setState({
   	  idx: index
@@ -111,22 +118,22 @@ class Home extends Component {
 		}
 	}
 	async getBanner () {
-		let bannerList = await interfaces.getBanner()
+		// let bannerList = await interfaces.getHello()
 	}
  	async getList () {
-		let goodlist = await interfaces.getGoodList(this.state.params)
-		if (!goodlist.hasError && goodlist.data) {
-			let list = []
-			if (this.state.params.page === 1) {
-				list = goodlist.data
-			} else {
-				list = this.state.list
-				list = list.concat(goodlist.data)
-			}
-			this.setState({
-				list: [...list]
-		  })
-		}
+//		let goodlist = await interfaces.getGoodList(this.state.params)
+//		if (!goodlist.hasError && goodlist.data) {
+//			let list = []
+//			if (this.state.params.page === 1) {
+//				list = goodlist.data
+//			} else {
+//				list = this.state.list
+//				list = list.concat(goodlist.data)
+//			}
+//			this.setState({
+//				list: [...list]
+//		  })
+//		}
 	}
 	async getTab () {
 		let tablist = await interfaces.getTabList()
@@ -146,8 +153,9 @@ class Home extends Component {
 	}
   async componentWillMount () {
     console.log('welcome entering home page!')
-		this.getBanner()
+    // this.getBanner()
 		// this.getList()
+		this.getData()
   }
 }
 
